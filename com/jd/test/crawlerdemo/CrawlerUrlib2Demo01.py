@@ -6,7 +6,6 @@ import os
 
 #一个简单的爬虫案例
 if __name__=='__main__':
-    pass
   #1.访问网页，获取网页源代码
     url="http://www.qiushibaike.com/textnew/page/2/?s=4935195"
     userAgent="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36"
@@ -22,11 +21,13 @@ if __name__=='__main__':
     path="E:/javatest/qiueshibaike"
     count=1
     for item in items:
+        item_new = item.replace('<br/>','\n').replace('\n','')
         if not os.path.exists(path):
             os.mkdir(path)
         file_path=path+'/'+str(count)+'.txt'
         f=open(file_path,'w')
         f.write(item)
+        f.write(item_new)
         f.close()
         count=count+1
   #3.保存抓取数据
