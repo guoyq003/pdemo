@@ -12,11 +12,14 @@ s=requests.session()
 s.post(loginURL,loginValue)
 cookieKey=s.cookies.items()[0][0]
 cookieValue=s.cookies.items()[0][1]
-print cookieKey,cookieValue
+# print cookieKey,cookieValue
 # for k,v in s.cookies.iteritems():
 #     if k.startswith("JSESSIONID"):
 #         print k+"="+v
 clone_and_start_url="http://192.168.172.43:8019/perftest/api/85/clone_and_start"
 cookies={cookieKey:cookieValue}
-r=requests.get(clone_and_start_url,cookies=cookies)
-print r.text
+rc=requests.get(clone_and_start_url,cookies=cookies)
+print rc.text
+detail_report_url="http://192.168.172.43:8019/perftest/85/detail_report"
+rd=requests.get(detail_report_url,cookies)
+print rd.text
