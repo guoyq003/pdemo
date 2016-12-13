@@ -15,10 +15,10 @@ if __name__=='__main__':
     content=response.read()
     # print content
   #2.从网页源代码重提取想要的数据
-    pattern=re.compile('<div class="content">.*?<span>(.*?)</span>.*?</div>',re.S)
-    items=re.findall(pattern,content)
+    pattern='<div class="content">.*?<span>(.*?)</span>.*?</div>'
+    items=re.findall(pattern,content,re.S)
     # print items
-    path="E:/javatest/qiueshibaike"
+    path="D:/javatest/qiueshibaike"
     count=1
     for item in items:
         item_new = item.replace('<br/>','\n').replace('\n','')
