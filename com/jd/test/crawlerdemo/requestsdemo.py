@@ -39,6 +39,6 @@ print(r.text, '\n{}\n'.format('*'*79), r.encoding)
 # r = requests.get(url, cookies=cookies)
 # print(r.json())
 
-r1 = requests.get('https://api.github.com/user', auth=('guoyq003', 'dic2041'))
+r1 = requests.get('https://api.github.com/user', auth=('guoy', 'dic'))
 print r1.text
 print r1.json()
